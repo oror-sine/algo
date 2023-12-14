@@ -2,3 +2,4 @@ src
 target
 Cargo.lock
 Cargo.toml
+*.txt
