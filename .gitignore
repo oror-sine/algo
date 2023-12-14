@@ -1,5 +1,4 @@
-src
-target
-Cargo.lock
-Cargo.toml
+.vscode
+rust
+cpp
 *.txt
