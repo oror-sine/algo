@@ -7,11 +7,11 @@ fn main() {
     let mut cnts = [0; 9];
 
     for num in buf.trim().chars() {
-        let num = num.to_digit(10).unwrap() as usize;
-        match num {
-            9 => cnts[6] += 1,
-            num => cnts[num] += 1,
-        }
+        cnts[if num == '9' {
+            6
+        } else {
+            num.to_digit(10).unwrap() as usize
+        }] += 1;
     }
     cnts[6] = (cnts[6] + 1) >> 1;
 
