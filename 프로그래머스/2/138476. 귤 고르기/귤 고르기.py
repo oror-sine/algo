@@ -1,10 +1,8 @@
-from collections import defaultdict
+from collections import Counter
 
 def solution(k, tangerine):
-    d = defaultdict(int)
-    for size in tangerine:
-        d[size] += 1
-    for i, cnt in enumerate(sorted(d.values(), reverse=True)):
+    cnts = Counter(tangerine)
+    for i, cnt in enumerate(sorted(cnts.values(), reverse=True)):
         k -= cnt
         if k <= 0:
             return i+1
