@@ -1,5 +1,9 @@
-from itertools import combinations
-
 def solution(number):
-    combs = combinations(number, 3)
-    return sum(sum(comb) == 0 for comb in combs)
+    answer = 0
+    for i, a in enumerate(number):
+        for j, b in enumerate(number):
+            for k, c in enumerate(number):
+                if i < j < k and a + b + c == 0:
+                    answer += 1
+                    
+    return answer
