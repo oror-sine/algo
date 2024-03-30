@@ -7,11 +7,11 @@ dictionary = {
 }
 
 def solution(s):
-    answer = ''
+    answer = []
     index = 0
     while index < len(s):
         digit, length = dictionary.get(s[index:index+2], (s[index],1))
-        answer += digit
+        answer.append(digit)
         index += length
         
-    return int(answer)
+    return int(''.join(answer))
