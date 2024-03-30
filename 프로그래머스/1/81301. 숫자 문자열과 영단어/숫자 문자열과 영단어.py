@@ -7,7 +7,7 @@ dictionary = {
 }
 
 def solution(s):
-    answer = '0'
+    answer = ''
     index = 0
     while index < len(s):
         digit, length = dictionary.get(s[index:index+2], (s[index],1))
