@@ -1,12 +1,11 @@
 import sys
 import os
 import re
-import subprocess
 import json
 import urllib.request
 import urllib.error
 
-cmd = lambda x: 'git log -1 --pretty=oneline'.split()+[x]
+cmd = lambda x: f'git log -1 --pretty=oneline {x}'
 performance_ptrn = re.compile(r'Time:[^-]*')
 title_ptrn = re.compile(r'[^\[\]]+')
 
@@ -38,7 +37,7 @@ def main(cookie):
     for file_name, lines in files.items():
         extension = file_name.split('.')[-1]
         file_path = f'{dirname}/{file_name}'
-        performance = performance_ptrn.findall(subprocess.check_output(cmd(file_path)).decode('utf-8'))[0]
+        performance = performance_ptrn.findall(os.popen(cmd(file_path)).read())[0]
         code = ''.join(lines)
 
         content += f'### .{extension}\n\n'
